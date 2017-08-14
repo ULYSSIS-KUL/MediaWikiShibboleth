@@ -1,0 +1,31 @@
+{
+	"name": "MediaWikiShibboleth",
+	"author": "Joachim Vandersmissen",
+	"url": "https://ulyssis.org/",
+	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
+	"version": "0.1",
+	"license-name": "All rights reserved",
+	"type": "other",
+	"Hooks": {
+		"PersonalUrls": ["MediaWikiShibboleth::onPersonalUrls"],
+		"SpecialPage_initList": ["MediaWikiShibboleth::onSpecialPage_initList"],
+		"UserLogout": ["MediaWikiShibboleth::onUserLogout"]
+	},
+	"SpecialPages": {
+		"ShibbolethLogin": "SpecialShibbolethLogin"
+	},
+	"AutoloadClasses": {
+		"MediaWikiShibboleth_body": "MediaWikiShibboleth_body.php",
+		"ShibbolethSessionProvider": "includes/ShibbolethSessionProvider.php",
+		"bKULshib": "includes/bKULshib.php",
+		"SpecialShibbolethLogin": "includes/SpecialShibbolethLogin.php"
+	},
+	"SessionProviders": {
+		"ShibbolethSessionProvider": {
+			"class": "ShibbolethSessionProvider",
+			"args": []
+		}
+	},
+	"manifest_version": 1
+}
+
