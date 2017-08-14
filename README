@@ -1,4 +1,4 @@
 # Installation
 Add to your LocalSettings.php:
-`wfLoadExtension('MediaWikiShibboleth');
-include 'extensions/MediaWikiShibboleth/MediaWikiShibboleth_body.php';`
+wfLoadExtension('MediaWikiShibboleth');
+include 'extensions/MediaWikiShibboleth/MediaWikiShibboleth_body.php';
