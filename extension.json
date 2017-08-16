@@ -15,7 +15,7 @@
 		"ShibbolethLogin": "SpecialShibbolethLogin"
 	},
 	"AutoloadClasses": {
-		"MediaWikiShibboleth_body": "MediaWikiShibboleth_body.php",
+		"MediaWikiShibboleth": "MediaWikiShibboleth_body.php",
 		"ShibbolethSessionProvider": "includes/ShibbolethSessionProvider.php",
 		"bKULshib": "includes/bKULshib.php",
 		"SpecialShibbolethLogin": "includes/SpecialShibbolethLogin.php"
