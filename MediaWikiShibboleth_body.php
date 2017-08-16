@@ -1,10 +1,4 @@
 <?php
-
-$wgGroupPermissions['*']['edit'] = false;
-$wgGroupPermissions['*']['createaccount'] = false;
-$wgGroupPermissions['*']['createtalk'] = false;
-$wgGroupPermissions['*']['createpage'] = false;
-$wgGroupPermissions['*']['writeapi'] = false;
 $wgRevokePermissions['Shibboleth']['editmyprivateinfo'] = true;
 
 class MediaWikiShibboleth {
