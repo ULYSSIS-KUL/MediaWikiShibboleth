@@ -20,5 +20,3 @@ $wgGroupPermissions['*']['createtalk'] = false;
 $wgGroupPermissions['*']['createpage'] = false;
 $wgGroupPermissions['*']['writeapi'] = false;
 ```
-
-If you want to allow anonymous page editing and creation (you probably don't want this), do NOT add the last 5 lines of the previous paragraph. 
