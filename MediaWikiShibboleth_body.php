@@ -1,5 +1,7 @@
 <?php
 $wgRevokePermissions['Shibboleth']['editmyprivateinfo'] = true;
+$wgGroupPermissions['*']['createaccount'] = false;
+
 
 class MediaWikiShibboleth {
 	public static function onPersonalUrls(array &$personal_urls, Title $title, SkinTemplate $skin) {
