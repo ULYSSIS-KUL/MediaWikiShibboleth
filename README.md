@@ -15,8 +15,9 @@ wfLoadExtension('MediaWikiShibboleth');
 include 'extensions/MediaWikiShibboleth/MediaWikiShibboleth_body.php';
 
 $wgGroupPermissions['*']['edit'] = false;
-$wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['*']['createtalk'] = false;
 $wgGroupPermissions['*']['createpage'] = false;
 $wgGroupPermissions['*']['writeapi'] = false;
 ```
+
+If you want to allow anonymous editing, you should *not* add the last 4 lines of the previous paragraph.
