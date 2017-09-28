@@ -1,11 +1,12 @@
 <?php
 
 use MediaWiki\Session\SessionProvider;
+use MediaWiki\Session\ImmutableSessionProviderWithCookie;
 use MediaWiki\Session\SessionBackend;
 use MediaWiki\Session\SessionInfo;
 use MediaWiki\Session\UserInfo;
 
-class ShibbolethSessionProvider extends SessionProvider {
+class ShibbolethSessionProvider extends ImmutableSessionProviderWithCookie {
 	public function provideSessionInfo(WebRequest $request) {
 		$shib = new bKULshib();
 		if ($shib->check_login()) {
@@ -21,27 +22,33 @@ class ShibbolethSessionProvider extends SessionProvider {
 				$user->addGroup("Shibboleth");
 			}
 
-			$userInfo = UserInfo::newFromUser($user, true);
+			if ($this->sessionCookieName === null) {
+				$id = $this->hashToSessionId(join( "\n", [
+					$shib->single_email(),
+					$shib->fullname(),
+					wfWikiID()
+				]));
+				$persisted = false;
+				$forceUse = true;
+			} else {
+				$id = $this->getSessionIdFromCookie($request);
+				$persisted = $id !== null;
+				$forceUse = false;
+			}
+
 			return new SessionInfo(SessionInfo::MAX_PRIORITY, [
-				"provider" => $this,
-				"userInfo" => $userInfo
+				'provider' => $this,
+				'id' => $id,
+				'userInfo' => UserInfo::newFromUser($user, true),
+				'persisted' => $persisted,
+				'forceUse' => $forceUse
 			]);
 		} else {
 			return null;
 		}
 	}
 
-	public function persistsSessionId() {
-		return false;
-	}
-
 	public function canChangeUser() {
 		return true;
-	}
-
-	public function persistSession(SessionBackend $session, WebRequest $request) {
-	}
-
-	public function unpersistSession(WebRequest $request) {
 	}
 }
