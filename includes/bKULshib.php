@@ -8,6 +8,7 @@ class bKULshib {
 	protected $headers = array();
 	protected $shib_names = array(
 	'appid' => array('Shib-Application-ID'),
+	'sessionid' => array('Shib-Session-ID'),
 	'givenname' => array('Shib-Person-givenName', 'givenName'),
 	'surname' => array('Shib-Person-surname', 'sn'),
 	'commonname' => array('Shib-Person-commonName', 'cn'),
@@ -138,6 +139,27 @@ class bKULshib {
 	
 	function set_kul_ldap_password($kulpassword) {
 		$this->ldap_password = $kulpassword;
+	}
+	
+	function shib_session_id() {
+		if($this->shib) {
+			foreach($this->shib_names['sessionid'] as $sessionid) {
+				if(isset($this->headers[$sessionid])) {
+					return $this->headers[$sessionid];
+					break;
+				}
+			}
+			if($this->debug) {
+				trigger_error("bKULshib: De shibboleth attribuut &quot;Shib-Session-ID&quot; werd opgevraagd die niet toegankelijk is. Dat is extra vreemd aangezien dat er simpelweg hoort te zijn wanneer iemand is ingelogd.", E_USER_WARNING);
+			}
+			return FALSE;
+		}
+		else {
+			if($this->debug) {
+				trigger_error("bKULshib: Een shibboleth attribuut werd opgevraagd terwijl de gebruiker helemaal niet is ingelogd, gebruik check_login voordat je attributen vraagt!", E_USER_WARNING);
+			}
+			return FALSE;
+		}
 	}
 	
 	function kulid() {

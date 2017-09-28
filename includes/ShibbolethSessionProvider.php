@@ -24,11 +24,7 @@ class ShibbolethSessionProvider extends SessionProvider {
 
 			return new SessionInfo(SessionInfo::MAX_PRIORITY, [
 				'provider' => $this,
-				'id' => $this->hashToSessionId(join( "\n", [
-                                	        $shib->single_email(),
-                                        	$shib->fullname(),
-                                        	wfWikiID()
-                                	])),
+				'id' => $this->hashToSessionId($shib->shib_session_id()),
 				'userInfo' => UserInfo::newFromUser($user, true),
 				'forceUse' => true
 			]);
