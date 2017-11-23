@@ -1,14 +1,12 @@
 # Prerequisites
 
 Before installing, you need to have SSL and KU Leuven Shibboleth enabled on your domain.
-For instructions on how to get SSL: https://docs.ulyssis.org/Getting_SSL
-Requesting Shibboleth: https://docs.ulyssis.org/Shibboleth
 Once you know everything is installed properly, you can proceed to install the extension.
 
 # Installation 
 
-First unzip the zip file in your <mediawiki root>/extensions/ directory.
-Then, add the following lines to your `<mediawiki root>/LocalSettings.php`:
+First unzip the zip file in your `<mediawiki installation folder>/extensions/` directory.
+Then, add the following lines to your `<mediawiki installation folder>/LocalSettings.php`:
 
 ```php
 wfLoadExtension('MediaWikiShibboleth');
@@ -20,4 +18,4 @@ $wgGroupPermissions['*']['createpage'] = false;
 $wgGroupPermissions['*']['writeapi'] = false;
 ```
 
-If you want to allow anonymous editing, you should *not* add the last 4 lines of the previous paragraph.
+If you want to allow anonymous editing, you should *not* add the last 4 lines of the previous paragraph. Though this really defeats the purpose of the extension. 
