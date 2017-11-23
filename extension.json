@@ -1,9 +1,9 @@
 {
 	"name": "MediaWikiShibboleth",
-	"author": "Joachim Vandersmissen",
+	"author": "ULYSSIS VZW, by Joachim Vandersmissen",
 	"url": "https://ulyssis.org/",
 	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
-	"version": "0.1",
+	"version": "1.0.0",
 	"license-name": "All rights reserved",
 	"type": "other",
 	"Hooks": {
