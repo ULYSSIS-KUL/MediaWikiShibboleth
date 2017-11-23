@@ -5,8 +5,7 @@ Once you know everything is installed properly, you can proceed to install the e
 
 # Installation 
 
-First unzip the zip file in your `<mediawiki installation folder>/extensions/` directory.
-Then, add the following lines to your `<mediawiki installation folder>/LocalSettings.php`:
+First, download the latest release from https://github.com/ULYSSIS-KUL/MediaWikiShibboleth/releases/latest. Make sure to click the `MediaWikiShibboleth.zip` download button. Then, unzip the zip file in your `<mediawiki installation folder>/extensions/` directory. Finally, add the following lines to your `<mediawiki installation folder>/LocalSettings.php`
 
 ```php
 wfLoadExtension('MediaWikiShibboleth');
