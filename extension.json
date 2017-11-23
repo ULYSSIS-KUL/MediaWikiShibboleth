@@ -4,7 +4,7 @@
 	"url": "https://ulyssis.org/",
 	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
 	"version": "1.0.0",
-	"license-name": "All rights reserved",
+	"license-name": "GPL-2.0+",
 	"type": "other",
 	"Hooks": {
 		"PersonalUrls": ["MediaWikiShibboleth::onPersonalUrls"],
