@@ -9,7 +9,40 @@ use MediaWiki\Session\UserInfo;
 class ShibbolethSessionProvider extends SessionProvider {
 	public function provideSessionInfo(WebRequest $request) {
 		$shib = new bKULshib();
+
 		if ($shib->check_login()) {
+			global $wgMWSStudentsOnly;
+			if ($wgMWSStudentsOnly && (!$shib->is_student() || $shib->is_employee())) {
+				return null;
+			}
+
+			global $wgMWSAllowedKULids;
+			$found = !$wgMWSAllowedKULids;
+			foreach (explode(',', $wgMWSAllowedKULids) as $KULid) {
+				if (trim($KULid) === $shib->kulid()) {
+					$found = TRUE;
+					break;
+				}
+			}
+
+			if (!$found) {
+				return null;
+			}
+
+			global $wgMWSAllowedDegrees;
+			$found = !$wgMWSAllowedDegrees;
+			$oplID = $shib->oplID();
+			foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
+				if (in_array(trim($degree), $oplID)) {
+					$found = TRUE;
+					break;
+				}
+			}
+
+			if (!$found) {
+				return null;
+			}
+
 			$kulid = ucwords($shib->kulid());
 			$user = User::newFromName($kulid);
 
