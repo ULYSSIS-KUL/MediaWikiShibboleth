@@ -3,7 +3,7 @@
 	"author": "ULYSSIS VZW, by Joachim Vandersmissen",
 	"url": "https://ulyssis.org/",
 	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"license-name": "GPL-2.0+",
 	"type": "other",
 	"Hooks": {
@@ -25,6 +25,9 @@
 			"class": "ShibbolethSessionProvider",
 			"args": []
 		}
+	},
+	"MessagesDirs": {
+		"MediaWikiShibboleth": ["i18n"]
 	},
 	"config": {
 		"MWSStudentsOnly": false,
