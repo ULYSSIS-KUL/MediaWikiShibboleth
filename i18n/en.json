@@ -1,6 +1,6 @@
 {
-	"mediawikishibboleth-login": "Click on the image to log in:",
-	"mediawikishibboleth-password-login": "Password Login",
+	"mediawikishibboleth-login": "Log in using Central KU Leuven login:",
+	"mediawikishibboleth-password-login": "Login without Central KU Leuven login:",
 	"mediawikishibboleth-students-only": "Only students are allowed to sign in!",
 	"mediawikishibboleth-forbidden-student": "You are not allowed to sign in: your student number is not allowed by the website administrator!",
 	"mediawikishibboleth-forbidden-degree": "You are not allowed to sign in: you are not enrolled in any of the programmes allowing access to this website!"
