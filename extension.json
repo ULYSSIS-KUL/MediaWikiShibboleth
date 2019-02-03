@@ -26,11 +26,6 @@
 	"MessagesDirs": {
 		"MediaWikiShibboleth": ["i18n"]
 	},
-	"config": {
-		"MWSStudentsOnly": false,
-		"MWSAllowedKULids": "",
-		"MWSAllowedDegrees": ""
-	},
 	"manifest_version": 1
 }
 
