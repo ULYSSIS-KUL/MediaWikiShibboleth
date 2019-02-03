@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWikiShibboleth;
+
 class SpecialShibbolethLogin extends SpecialUserLogin {
 	function __construct() {
 		parent::__construct("ShibbolethLogin");
@@ -11,12 +13,8 @@ class SpecialShibbolethLogin extends SpecialUserLogin {
 	}
 
 	function image($shib) {
-		$ret = $_SERVER['PHP_SELF'];
-		if ($_GET['returnto']) {
-			$ret .= '?title=' . $_GET['returnto'];
-		}
 		$clickMessage = wfMessage('mediawikishibboleth-login')->parse();
-		return '<p>' . $clickMessage . '</p><a href="' . $shib->login_link($ret) . '"><img src="extensions/MediaWikiShibboleth/shib.gif" alt="Centrale KU Leuven Login" align="middle"></a>';
+		return '<p>' . $clickMessage . '</p><a href="' . $shib->login_link() . '"><img src="extensions/MediaWikiShibboleth/shib.gif" alt="Centrale KU Leuven Login" align="middle"></a>';
 	}
 
 	function password_login($formHtml) {
@@ -58,6 +56,8 @@ class SpecialShibbolethLogin extends SpecialUserLogin {
 			if (!$found) {
 				return $this->errorBox('mediawikishibboleth-forbidden-degree') . $this->password_login($formHtml);
 			}
+
+			$this->successfulAction();
 		}
 
 		return $this->image($shib) . $this->password_login($formHtml);

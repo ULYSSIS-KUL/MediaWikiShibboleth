@@ -6,23 +6,23 @@
 	"version": "1.2.0",
 	"license-name": "GPL-2.0+",
 	"type": "other",
+	"AutoloadNamespaces": {
+		"MediaWikiShibboleth\\": "includes/",
+	},
+	"AutoloadClasses": {
+		"bKULshib": "includes/bKULshib.php",
+	},
 	"Hooks": {
 		"PersonalUrls": ["MediaWikiShibboleth::onPersonalUrls"],
 		"SpecialPage_initList": ["MediaWikiShibboleth::onSpecialPage_initList"],
 		"UserLogout": ["MediaWikiShibboleth::onUserLogout"]
 	},
 	"SpecialPages": {
-		"ShibbolethLogin": "SpecialShibbolethLogin"
-	},
-	"AutoloadClasses": {
-		"MediaWikiShibboleth": "MediaWikiShibboleth_body.php",
-		"ShibbolethSessionProvider": "includes/ShibbolethSessionProvider.php",
-		"bKULshib": "includes/bKULshib.php",
-		"SpecialShibbolethLogin": "includes/SpecialShibbolethLogin.php"
+		"ShibbolethLogin": "MediaWikiShibboleth\\SpecialShibbolethLogin"
 	},
 	"SessionProviders": {
 		"ShibbolethSessionProvider": {
-			"class": "ShibbolethSessionProvider",
+			"class": "MediaWikiShibboleth\\ShibbolethSessionProvider",
 			"args": []
 		}
 	},

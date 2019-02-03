@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWikiShibboleth;
+
 use MediaWiki\Session\SessionProvider;
 use MediaWiki\Session\ImmutableSessionProviderWithCookie;
 use MediaWiki\Session\SessionBackend;
@@ -48,6 +50,7 @@ class ShibbolethSessionProvider extends SessionProvider {
 
 			if (!$user->getId()) {
 				$user = User::createNew($kulid, [
+// TODO: Prevent password resets
 					"email" => $shib->single_email(),
 					"real_name" => $shib->fullname(),
 					"email_authenticated" => wfTimestamp(TS_MW) + 100
@@ -71,7 +74,7 @@ class ShibbolethSessionProvider extends SessionProvider {
 	}
 
 	public function canChangeUser() {
-		return true;
+		return false;
 	}
 
 	public function persistSession(SessionBackend $session, WebRequest $request) {
