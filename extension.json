@@ -7,15 +7,12 @@
 	"license-name": "GPL-2.0+",
 	"type": "other",
 	"AutoloadNamespaces": {
-		"MediaWikiShibboleth\\": "includes/",
-	},
-	"AutoloadClasses": {
-		"bKULshib": "includes/bKULshib.php",
+		"MediaWikiShibboleth\\": "includes/"
 	},
 	"Hooks": {
-		"PersonalUrls": ["MediaWikiShibboleth::onPersonalUrls"],
-		"SpecialPage_initList": ["MediaWikiShibboleth::onSpecialPage_initList"],
-		"UserLogout": ["MediaWikiShibboleth::onUserLogout"]
+		"PersonalUrls": ["MediaWikiShibboleth\\MediaWikiShibboleth::onPersonalUrls"],
+		"SpecialPage_initList": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSpecialPage_initList"],
+		"UserLogout": ["MediaWikiShibboleth\\MediaWikiShibboleth::onUserLogout"]
 	},
 	"SpecialPages": {
 		"ShibbolethLogin": "MediaWikiShibboleth\\SpecialShibbolethLogin"

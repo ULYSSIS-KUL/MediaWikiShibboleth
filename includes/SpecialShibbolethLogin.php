@@ -2,6 +2,8 @@
 
 namespace MediaWikiShibboleth;
 
+use SpecialUserLogin;
+
 class SpecialShibbolethLogin extends SpecialUserLogin {
 	function __construct() {
 		parent::__construct("ShibbolethLogin");

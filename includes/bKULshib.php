@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWikiShibboleth;
+
 class bKULshib {
 	protected $shib = FALSE;
 	protected $debug = FALSE;
