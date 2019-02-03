@@ -52,7 +52,7 @@ class ShibbolethSessionProvider extends SessionProvider {
 
 			if (!$user->getId()) {
 				$user = User::createNew($kulid, [
-					'email' => $shib->single_email(),
+//					'email' => $shib->single_email(),
 					'real_name' => $shib->fullname(),
 					'email_authenticated' => wfTimestamp(TS_MW) + 100
 					]);
