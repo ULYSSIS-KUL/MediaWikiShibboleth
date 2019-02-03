@@ -15,8 +15,9 @@ class SpecialShibbolethLogin extends SpecialUserLogin {
 	}
 
 	function image($shib) {
-		$clickMessage = wfMessage('mediawikishibboleth-login')->parse();
-		return '<p>' . $clickMessage . '</p><a href="' . $shib->login_link() . '"><img src="extensions/MediaWikiShibboleth/shib.gif" alt="Centrale KU Leuven Login" align="middle"></a>';
+		$login_link = $shib->login_link();
+		$clickMessage = '<a href="' . $login_link . '">' . wfMessage('mediawikishibboleth-login')->parse() . '</a>';
+		return '<p>' . $clickMessage . '</p><a href="' . $login_link . '"><img src="extensions/MediaWikiShibboleth/shib.gif" alt="Centrale KU Leuven Login" align="middle"></a>';
 	}
 
 	function password_login($formHtml) {
@@ -62,6 +63,6 @@ class SpecialShibbolethLogin extends SpecialUserLogin {
 			$this->successfulAction();
 		}
 
-		return $this->image($shib) . $this->password_login($formHtml);
+		return $this->image($shib) . '<hr>' . $this->password_login($formHtml);
 	}
 }
