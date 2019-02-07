@@ -3,33 +3,28 @@
 	"author": "ULYSSIS VZW, by Joachim Vandersmissen",
 	"url": "https://ulyssis.org/",
 	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"license-name": "GPL-2.0+",
 	"type": "other",
+	"AutoloadNamespaces": {
+		"MediaWikiShibboleth\\": "includes/"
+	},
 	"Hooks": {
-		"PersonalUrls": ["MediaWikiShibboleth::onPersonalUrls"],
-		"SpecialPage_initList": ["MediaWikiShibboleth::onSpecialPage_initList"],
-		"UserLogout": ["MediaWikiShibboleth::onUserLogout"]
+		"PersonalUrls": ["MediaWikiShibboleth\\MediaWikiShibboleth::onPersonalUrls"],
+		"SpecialPage_initList": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSpecialPage_initList"],
+		"UserLogout": ["MediaWikiShibboleth\\MediaWikiShibboleth::onUserLogout"]
 	},
 	"SpecialPages": {
-		"ShibbolethLogin": "SpecialShibbolethLogin"
-	},
-	"AutoloadClasses": {
-		"MediaWikiShibboleth": "MediaWikiShibboleth_body.php",
-		"ShibbolethSessionProvider": "includes/ShibbolethSessionProvider.php",
-		"bKULshib": "includes/bKULshib.php",
-		"SpecialShibbolethLogin": "includes/SpecialShibbolethLogin.php"
+		"ShibbolethLogin": "MediaWikiShibboleth\\SpecialShibbolethLogin"
 	},
 	"SessionProviders": {
 		"ShibbolethSessionProvider": {
-			"class": "ShibbolethSessionProvider",
+			"class": "MediaWikiShibboleth\\ShibbolethSessionProvider",
 			"args": []
 		}
 	},
-	"config": {
-		"MWSStudentsOnly": false,
-		"MWSAllowedKULids": "",
-		"MWSAllowedDegrees": ""
+	"MessagesDirs": {
+		"MediaWikiShibboleth": ["i18n"]
 	},
 	"manifest_version": 1
 }
