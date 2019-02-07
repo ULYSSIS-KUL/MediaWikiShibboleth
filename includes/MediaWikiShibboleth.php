@@ -1,7 +1,9 @@
 <?php
-$wgRevokePermissions['Shibboleth']['editmyprivateinfo'] = true;
-$wgGroupPermissions['*']['createaccount'] = false;
 
+namespace MediaWikiShibboleth;
+
+use Title;
+use SkinTemplate;
 
 class MediaWikiShibboleth {
 	public static function onPersonalUrls(array &$personal_urls, Title $title, SkinTemplate $skin) {
@@ -9,7 +11,7 @@ class MediaWikiShibboleth {
 	}
 
 	public static function onSpecialPage_initList(&$specialPages) {
-		$specialPages['Userlogin'] = "SpecialShibbolethLogin";
+		$specialPages['Userlogin'] = "MediaWikiShibboleth\\SpecialShibbolethLogin";
 		return true;
 	}
 
@@ -23,3 +25,4 @@ class MediaWikiShibboleth {
 		return true;
 	}
 }
+
