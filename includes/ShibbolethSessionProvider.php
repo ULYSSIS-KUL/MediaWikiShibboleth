@@ -20,34 +20,42 @@ class ShibbolethSessionProvider extends SessionProvider {
 				return null;
 			}
 
-			global $wgMWSAllowedKULids;
-			$found = !$wgMWSAllowedKULids;
-			foreach (explode(',', $wgMWSAllowedKULids) as $KULid) {
-				if (trim($KULid) === $shib->kulid()) {
-					$found = TRUE;
-					break;
-				}
-			}
+			$kulid = $shib->kulid();
 
-			if (!$found) {
-				return null;
+			global $wgMWSAllowedKULids;
+			// Only check the allowed KUL ids if the array is set and non-empty.
+			if (!empty($wgMWSAllowedKULids)) {
+				$found = FALSE;
+				foreach (explode(',', $wgMWSAllowedKULids) as $KULid) {
+					if (trim($KULid) === $kulid) {
+						$found = TRUE;
+						break;
+					}
+				}
+
+				if (!$found) {
+					return null;
+				}
 			}
 
 			global $wgMWSAllowedDegrees;
-			$found = !$wgMWSAllowedDegrees;
-			$oplID = $shib->oplID();
-			foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
-				if (in_array(trim($degree), $oplID)) {
-					$found = TRUE;
-					break;
+			// Only check allowed degrees if the array is set and non-empty.
+			if (!empty($wgMWSAllowedDegrees)) {
+				$oplIDs = $shib->oplID();
+				$found = FALSE;
+				foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
+					if (in_array(trim($degree), $oplIDs)) {
+						$found = TRUE;
+						break;
+					}
+				}
+
+				if (!$found) {
+					return null;
 				}
 			}
 
-			if (!$found) {
-				return null;
-			}
-
-			$kulid = ucwords($shib->kulid());
+			$kulid = ucwords($kulid);
 			$user = User::newFromName($kulid);
 
 			if (!$user->getId()) {
