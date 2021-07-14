@@ -1,31 +1,31 @@
 {
-	"name": "MediaWikiShibboleth",
-	"author": "ULYSSIS VZW, by Joachim Vandersmissen",
-	"url": "https://ulyssis.org/",
-	"description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
-	"version": "1.2.0",
-	"license-name": "GPL-2.0+",
-	"type": "other",
-	"AutoloadNamespaces": {
-		"MediaWikiShibboleth\\": "includes/"
-	},
-	"Hooks": {
-		"PersonalUrls": ["MediaWikiShibboleth\\MediaWikiShibboleth::onPersonalUrls"],
-		"SpecialPage_initList": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSpecialPage_initList"],
-		"UserLogout": ["MediaWikiShibboleth\\MediaWikiShibboleth::onUserLogout"]
-	},
-	"SpecialPages": {
-		"ShibbolethLogin": "MediaWikiShibboleth\\SpecialShibbolethLogin"
-	},
-	"SessionProviders": {
-		"ShibbolethSessionProvider": {
-			"class": "MediaWikiShibboleth\\ShibbolethSessionProvider",
-			"args": []
-		}
-	},
-	"MessagesDirs": {
-		"MediaWikiShibboleth": ["i18n"]
-	},
-	"manifest_version": 1
+    "name": "MediaWikiShibboleth",
+    "author": "ULYSSIS VZW, by Joachim Vandersmissen",
+    "url": "https://ulyssis.org/",
+    "description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
+    "version": "1.2.1",
+    "license-name": "GPL-2.0+",
+    "type": "other",
+    "AutoloadNamespaces": {
+        "MediaWikiShibboleth\\": "includes/"
+    },
+    "Hooks": {
+        "PersonalUrls": ["MediaWikiShibboleth\\MediaWikiShibboleth::onPersonalUrls"],
+        "SpecialPage_initList": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSpecialPage_initList"],
+        "UserLogout": ["MediaWikiShibboleth\\MediaWikiShibboleth::onUserLogout"]
+    },
+    "SpecialPages": {
+        "ShibbolethLogin": "MediaWikiShibboleth\\SpecialShibbolethLogin"
+    },
+    "SessionProviders": {
+        "ShibbolethSessionProvider": {
+            "class": "MediaWikiShibboleth\\ShibbolethSessionProvider",
+            "args": []
+        }
+    },
+    "MessagesDirs": {
+        "MediaWikiShibboleth": ["i18n"]
+    },
+    "manifest_version": 1
 }
 
