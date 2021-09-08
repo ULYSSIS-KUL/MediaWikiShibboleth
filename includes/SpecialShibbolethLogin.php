@@ -3,10 +3,11 @@
 namespace MediaWikiShibboleth;
 
 use SpecialUserLogin;
+use MediaWiki\MediaWikiServices;
 
 class SpecialShibbolethLogin extends SpecialUserLogin {
 	function __construct() {
-		parent::__construct("ShibbolethLogin");
+		parent::__construct(MediaWikiServices::getInstance()->getAuthManager());
 	}
 
 	function errorBox($message) {
