@@ -1,9 +1,9 @@
 {
     "name": "MediaWikiShibboleth",
     "author": "ULYSSIS VZW, by Joachim Vandersmissen",
-    "url": "https://ulyssis.org/",
+    "url": "https://docs.ulyssis.org/Securing_MediaWiki_using_Centrale_KU_Leuven_Login/",
     "description": "This extension replaces the vanilla login mechanics with a KU Leuven Shibboleth login",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "license-name": "GPL-2.0+",
     "type": "other",
     "AutoloadNamespaces": {
