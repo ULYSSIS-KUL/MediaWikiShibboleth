@@ -49,10 +49,12 @@ class SpecialShibbolethLogin extends SpecialUserLogin {
 			global $wgMWSAllowedDegrees;
 			$found = !$wgMWSAllowedDegrees;
 			$oplID = $shib->oplID();
-			foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
-				if (in_array(trim($degree), $oplID)) {
-					$found = TRUE;
-					break;
+			if(!empty($oplID)) {
+				foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
+					if (in_array(trim($degree), $oplID)) {
+						$found = TRUE;
+						break;
+					}
 				}
 			}
 

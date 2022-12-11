@@ -42,6 +42,10 @@ class ShibbolethSessionProvider extends SessionProvider {
 			// Only check allowed degrees if the array is set and non-empty.
 			if (!empty($wgMWSAllowedDegrees)) {
 				$oplIDs = $shib->oplID();
+				// Fail immediately if no the shib account has no degrees
+				if (empty($oplIDs)) {
+					return null;
+				}
 				$found = FALSE;
 				foreach (explode(',', $wgMWSAllowedDegrees) as $degree) {
 					if (in_array(trim($degree), $oplIDs)) {
