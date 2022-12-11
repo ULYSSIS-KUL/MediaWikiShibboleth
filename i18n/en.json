@@ -1,7 +1,8 @@
 {
-	"mediawikishibboleth-login": "Log in using Central KU Leuven login:",
-	"mediawikishibboleth-password-login": "Login without Central KU Leuven login",
-	"mediawikishibboleth-students-only": "Only students are allowed to sign in!",
-	"mediawikishibboleth-forbidden-student": "You are not allowed to sign in: your student number is not allowed by the website administrator!",
-	"mediawikishibboleth-forbidden-degree": "You are not allowed to sign in: you are not enrolled in any of the programmes allowing access to this website!"
+	"mediawikishibboleth-login": "Log in using Central KU Leuven Login:",
+	"mediawikishibboleth-password-login": "Log in without Central KU Leuven Login",
+	"mediawikishibboleth-students-only": "Access denied: only students are allowed to access this wiki.",
+	"mediawikishibboleth-forbidden-student": "Access denied: your student or staff id ($1) doesn't have access to this wiki.",
+	"mediawikishibboleth-forbidden-degree": "Access denied: {{PLURAL:$1|the program|none of the programs}} (identified by $2) you are enrolled in {{PLURAL:$1|doesn't give|give}} you access to this wiki.",
+	"mediawikishibboleth-forbidden-nodegree": "Access denied: you are currently not enrolled in any programs, while this wiki requires specific enrolment to gain access."
 }

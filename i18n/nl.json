@@ -1,7 +1,8 @@
 {
-	"mediawikishibboleth-login": "Aanmelden met Centrale KU Leuven login:",
-	"mediawikishibboleth-password-login": "Aanmelden zonder Centrale KU Leuven login",
-	"mediawikishibboleth-students-only": "Alleen studenten kunnen zich aanmelden!",
-	"mediawikishibboleth-forbidden-student": "U mag u niet aanmelden: uw studentennummer is niet toegestaan door de website administrator!",
-	"mediawikishibboleth-forbidden-degree": "U mag u niet aanmelden: u volgt geen van de opleidingen die toegang geven tot deze website!"
+	"mediawikishibboleth-login": "Aanmelden met Centrale KU Leuven Login:",
+	"mediawikishibboleth-password-login": "Aanmelden zonder Centrale KU Leuven Login",
+	"mediawikishibboleth-students-only": "Toegang geweigerd: alleen studenten hebben toegang tot deze wiki.",
+	"mediawikishibboleth-forbidden-student": "Toegang geweigerd: je studenten- of personeelsnummer ($1) heeft geen toegang tot deze wiki.",
+	"mediawikishibboleth-forbidden-degree": "Toegang geweigerd: de {{PLURAL:$1|studierichting|studierichtingen}} waarvoor je bent ingeschreven (met als identificatienummer{{PLURAL:$1||s}} $2) {{PLURAL:$1|geeft|geven}} je geen toegang tot deze wiki.",
+	"mediawikishibboleth-forbidden-nodegree": "Toegang geweigerd: je bent momenteel voor geen enkele studierichting ingeschreven, terwijl een inschrijving voor een bepaalde studierichting noodzakelijk is om toegang te krijgen tot deze wiki."
 }
