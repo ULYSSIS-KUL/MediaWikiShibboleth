@@ -6,8 +6,8 @@ use Title;
 use SkinTemplate;
 
 class MediaWikiShibboleth {
-	public static function onPersonalUrls(array &$personal_urls, Title $title, SkinTemplate $skin) {
-		unset($personal_urls['createaccount']);
+	public static function onSkinTemplateNavigationUniversal($skinTemplate, &$links) {
+		unset($links['user-menu']['createaccount']);
 	}
 
 	public static function onSpecialPage_initList(&$specialPages) {

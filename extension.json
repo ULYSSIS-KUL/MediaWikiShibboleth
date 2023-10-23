@@ -10,7 +10,7 @@
         "MediaWikiShibboleth\\": "includes/"
     },
     "Hooks": {
-        "PersonalUrls": ["MediaWikiShibboleth\\MediaWikiShibboleth::onPersonalUrls"],
+        "SkinTemplateNavigation::Universal": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSkinTemplateNavigationUniversal"],
         "SpecialPage_initList": ["MediaWikiShibboleth\\MediaWikiShibboleth::onSpecialPage_initList"],
         "UserLogout": ["MediaWikiShibboleth\\MediaWikiShibboleth::onUserLogout"]
     },
