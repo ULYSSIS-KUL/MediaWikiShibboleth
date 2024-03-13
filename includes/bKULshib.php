@@ -69,7 +69,7 @@ class bKULshib {
 		}
 	}
 	
-	function login_link($returnlink = NULL, $force_ssl = TRUE) {
+	function login_link($returnlink = "", $force_ssl = TRUE) {
 		//Voorbeeld loginlink: https://bert.ulyssis.be/Shibboleth.sso/WAYF/kuleuven?target=https%3A%2F%2Fbert.ulyssis.be%2Fshib%2Ftest.php
 		
 		if( ((isset($this->headers['HTTPS'])) AND ($this->headers['HTTPS'] == "on")) OR ($force_ssl) ) {
@@ -90,7 +90,7 @@ class bKULshib {
 				$return .= urlencode("http://") . urlencode($_SERVER['HTTP_HOST']);
 			}
 			
-			if($returnlink == NULL) {
+			if($returnlink == "") {
 				return $return . urlencode($_SERVER['REQUEST_URI']);
 			}
 			elseif(strpos($returnlink, "/") === 0) {
@@ -102,7 +102,7 @@ class bKULshib {
 		}
 	}
 	
-	function logout_link($displaylink = NULL, $force_ssl = TRUE) {
+	function logout_link($displaylink = "", $force_ssl = TRUE) {
 		//Voorbeeld logoutlink, volwaardige logout bij IdP, geen redirect: https://bert.ulyssis.be/Shibboleth.sso/Logout?return=https%3A%2F%2Fidp.kuleuven.be%2Fidp%2Flogout%3Freturn%3Dhttps%3A%2F%2Fbert.ulyssis.be%2Findex.php
 		
 		if( ((isset($this->headers['HTTPS'])) AND ($this->headers['HTTPS'] == "on")) OR ($force_ssl) ) {
@@ -123,7 +123,7 @@ class bKULshib {
 				$return .= urlencode("http://") . urlencode($_SERVER['HTTP_HOST']);
 			}
 			
-			if($displaylink == NULL) {
+			if($displaylink == "") {
 				return $return . urlencode($_SERVER['REQUEST_URI']);
 			}
 			elseif(strpos($displaylink, "/") === 0) {
