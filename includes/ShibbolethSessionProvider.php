@@ -4,11 +4,14 @@ namespace MediaWikiShibboleth;
 
 use WebRequest;
 use User;
+use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserGroupManager;
 use MediaWiki\Session\SessionProvider;
 use MediaWiki\Session\ImmutableSessionProviderWithCookie;
 use MediaWiki\Session\SessionBackend;
 use MediaWiki\Session\SessionInfo;
 use MediaWiki\Session\UserInfo;
+use MediaWiki\MediaWikiServices;
 
 class ShibbolethSessionProvider extends SessionProvider {
 	public function provideSessionInfo(WebRequest $request) {
@@ -58,9 +61,12 @@ class ShibbolethSessionProvider extends SessionProvider {
 					return null;
 				}
 			}
-
+			
+			$services = MediaWikiServices::getInstance();
+			$userFactory = $services->getUserFactory();
+			
 			$kulid = ucwords($kulid);
-			$user = User::newFromName($kulid);
+			$user = $userFactory->newFromName($kulid);
 
 			if (!$user->getId()) {
 				$user = User::createNew($kulid, [
@@ -68,7 +74,8 @@ class ShibbolethSessionProvider extends SessionProvider {
 					'real_name' => $shib->fullname(),
 					'email_authenticated' => wfTimestamp(TS_MW) + 100
 					]);
-				$user->addGroup("Shibboleth");
+				$userGroupManager = $services->getUserGroupManager();
+				$userGroupManager->addUserToGroup($user, "Shibboleth");
 			}
 
 			return new SessionInfo(SessionInfo::MAX_PRIORITY, [
